@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.test.R
 import com.android.test.databinding.ActivityMainBinding
 import com.android.test.utils.hideKeyboardForce
+import com.android.test.utils.isNetworkAvailable
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -37,12 +38,14 @@ class MainActivity : AppCompatActivity() {
             adapter = userAdapter
         }
         mainBinding.btnSubmit.setOnClickListener {
-            initObservers(
-                mainBinding.edtSearchUser.text.toString().trim()
-            )
-            mainBinding.ccProgress.visibility = View.VISIBLE
-            hideKeyboardForce(this)
-            mainBinding.edtSearchUser.clearFocus()
+            if (isNetworkAvailable()) {
+                initObservers(
+                    mainBinding.edtSearchUser.text.toString().trim()
+                )
+                mainBinding.ccProgress.visibility = View.VISIBLE
+                hideKeyboardForce(this)
+                mainBinding.edtSearchUser.clearFocus()
+            }
         }
         initAdapter()
 
