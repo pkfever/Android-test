@@ -5,6 +5,6 @@ import com.squareup.moshi.Json
 
 class UserResponse {
 
-    @Json(name = "total_count")  var totalCount: Int = 0
-    @Json(name = "items")  var items: MutableList<User> = mutableListOf()
+    @Json(name = "total_count") var totalCount: Int = 0
+    @Json(name = "items") var items: MutableList<User> = mutableListOf()
 }

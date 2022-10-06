@@ -1,6 +1,5 @@
 package com.android.test.domain.model
 
-
 private const val BAD_REQUEST_ERROR_MESSAGE = "Bad Request!"
 private const val FORBIDDEN_ERROR_MESSAGE = "Forbidden!"
 private const val NOT_FOUND_ERROR_MESSAGE = "Not Found!"

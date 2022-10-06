@@ -7,5 +7,4 @@ import kotlinx.coroutines.flow.Flow
 interface UserRepository {
 
     suspend fun getUserListPaging(name: String): Flow<PagingData<UserItemResponse>>
-
 }

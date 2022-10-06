@@ -11,11 +11,10 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("${SEARCH}/${USERS}")
+    @GET("$SEARCH/$USERS")
     suspend fun getUserList(
         @Query(QUERY) query: String?,
         @Query(PER_PAGE) perPage: Int,
         @Query(PAGE) page: Int,
     ): UserResponse?
-
 }

@@ -1,9 +1,9 @@
 package com.android.test.ui.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
         initAdapter()
-
     }
 
     private fun initObservers(lbl: String) {
@@ -101,5 +100,4 @@ class MainActivity : AppCompatActivity() {
             refreshLayout.isRefreshing = loading == true
         }*/
     }
-
 }

@@ -1,7 +1,5 @@
 package com.android.test.domain.model
 
-import java.util.*
-
 class UserListMapper {
 
     fun toCryptoListResponse(json: List<User>): List<UserItemResponse> {
