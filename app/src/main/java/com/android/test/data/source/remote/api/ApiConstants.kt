@@ -9,7 +9,7 @@ class ApiConstants {
 
     object Query {
 
-        const val QUERY = "q"
+        const val QUERY_PARAMETER = "q"
         const val PER_PAGE = "per_page"
         const val PAGE = "page"
     }
