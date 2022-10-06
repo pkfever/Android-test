@@ -23,6 +23,7 @@ fun hideKeyboard(act: Activity?) {
 }
 
 fun Context.isNetworkAvailable(): Boolean {
+    var isConnected = false
     val connectivityManager =
         this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     val capabilities =
@@ -31,18 +32,18 @@ fun Context.isNetworkAvailable(): Boolean {
         when {
             capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
                 Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
-                return true
+                isConnected = true
             }
             capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
                 Log.i("Internet", "NetworkCapabilities.TRANSPORT_WIFI")
-                return true
+                isConnected = true
             }
             capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> {
                 Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
-                return true
+                isConnected = true
             }
         }
     }
     Toast.makeText(applicationContext, R.string.no_internet_connection, Toast.LENGTH_SHORT).show()
-    return false
+    return isConnected
 }

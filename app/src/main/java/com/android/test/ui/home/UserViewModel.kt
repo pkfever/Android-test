@@ -19,8 +19,4 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
         viewModelScope.cancel()
         super.onCleared()
     }
-
-    companion object {
-        private val TAG = UserViewModel::class.java.name
-    }
 }

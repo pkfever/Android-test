@@ -68,7 +68,8 @@ data class ApiError(val message: String?, val code: Int?, var errorStatus: Error
         METHOD_NOT_ALLOWED,
 
         /**
-         * The request could not be completed as it is. Use the information included in the response to modify the request and retry.
+         * The request could not be completed as it is.
+         * Use the information included in the response to modify the request and retry.
          */
         CONFLICT,
 
