@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             adapter = userAdapter
         }
         mainBinding.btnSubmit.setOnClickListener {
-            if (isNetworkAvailable()) {
+            if (isNetworkAvailable() ) {
                 initObservers(
                     mainBinding.edtSearchUser.text.toString().trim()
                 )
