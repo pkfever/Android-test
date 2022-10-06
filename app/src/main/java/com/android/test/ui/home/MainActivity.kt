@@ -12,7 +12,7 @@ import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.test.R
 import com.android.test.databinding.ActivityMainBinding
-import com.android.test.utils.hideKeyboardForce
+import com.android.test.utils.hideKeyboard
 import com.android.test.utils.isNetworkAvailable
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                     mainBinding.edtSearchUser.text.toString().trim()
                 )
                 mainBinding.ccProgress.visibility = View.VISIBLE
-                hideKeyboardForce(this)
+                hideKeyboard(this)
                 mainBinding.edtSearchUser.clearFocus()
             }
         }
@@ -63,8 +63,7 @@ class MainActivity : AppCompatActivity() {
     private fun initAdapter() {
         userAdapter.addLoadStateListener { loadState ->
             // show empty list
-            val isListEmpty =
-                loadState.refresh is LoadState.NotLoading && userAdapter.itemCount == 0
+            loadState.refresh is LoadState.NotLoading && userAdapter.itemCount == 0
 //            binding.tvNoResults.isVisible = isListEmpty
 
             // Only show the list if refresh succeeds.
@@ -72,7 +71,7 @@ class MainActivity : AppCompatActivity() {
             mainBinding.ccProgress.visibility = View.GONE
 
             // Show loading spinner during initial load or refresh.
-            handleLoading(loadState.source.refresh is LoadState.Loading)
+//            handleLoading(loadState.source.refresh is LoadState.Loading)
 
             // Show the retry state if initial load or refresh fails.
 //            binding.btnRetry.isVisible = loadState.source.refresh is LoadState.Error
@@ -95,9 +94,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun handleLoading(loading: Boolean) {
-        /*with(binding) {
-            refreshLayout.isRefreshing = loading == true
-        }*/
-    }
+//    private fun handleLoading(loading: Boolean) {
+//        /*with(binding) {
+//            refreshLayout.isRefreshing = loading == true
+//        }*/
+//    }
 }
