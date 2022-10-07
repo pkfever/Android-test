@@ -5,6 +5,8 @@ plugins {
     id 'kotlin-kapt'
     id("org.jlleitschuh.gradle.ktlint") version "11.0.0"
     id("io.gitlab.arturbosch.detekt") version "1.22.0-RC1"
+    id 'com.google.firebase.appdistribution'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -23,6 +25,13 @@ android {
     }
 
     buildTypes {
+
+        debug {
+            firebaseAppDistribution {
+                groups = "tester"
+            }
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -88,4 +97,9 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
     testImplementation "io.insert-koin:koin-test:$koin_version"
     testImplementation "io.mockk:mockk:$mockk_version"
+
+    implementation platform('com.google.firebase:firebase-bom:30.4.1')
+
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-database'
 }
