@@ -20,7 +20,8 @@ jobs:
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+
       - name: Build and deploy debug
         run: ./gradlew assembleDebug appDistributionUploadDebug
-          env:
-            FIREBASE_TOKEN: ${{secrets.FIREBASE_TOKEN}}
+        env:
+          FIREBASE_TOKEN: ${{secrets.FIREBASE_TOKEN}}
