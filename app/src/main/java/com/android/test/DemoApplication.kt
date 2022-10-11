@@ -1,6 +1,7 @@
 package com.android.test
 
 import android.app.Application
+import android.util.Log
 import com.android.test.di.AppModule
 import com.android.test.di.NetworkModule
 import org.koin.android.ext.koin.androidContext
@@ -18,5 +19,6 @@ class DemoApplication : Application() {
             androidContext(this@DemoApplication)
             modules(listOf(NetworkModule, AppModule))
         }
+        Log.v("App", "Test")
     }
 }
